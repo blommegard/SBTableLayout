@@ -25,7 +25,7 @@
     
     _topSeparatorView = [SBCollectionViewTableCellSeparatorView new];
     _bottomSeparatorView = [SBCollectionViewTableCellSeparatorView new];
-    [self.contentView addSubview:_bottomSeparatorView];
+    _middleSeparatorView = [SBCollectionViewTableCellSeparatorView new];
   }
   return self;
 }
@@ -42,21 +42,37 @@
   
   SBCollectionViewTableCellType type = layoutAttributes.cellType;
   
-  CGRect topFrame = CGRectMake(0.f, 0.f, CGRectGetWidth(self.bounds), layoutAttributes.borderSeparatorWidth);
-  
-  BOOL border = (type == SBCollectionViewTableCellTypeSingle || type == SBCollectionViewTableCellTypeBottom);
-  CGRect bottomFrame = CGRectMake(border?0.f:layoutAttributes.middleSeparatorInset.left,
-                                  CGRectGetHeight(self.bounds)-(border?layoutAttributes.borderSeparatorWidth:layoutAttributes.middleSeparatorWidth),
-                                  CGRectGetWidth(self.bounds)-(border?0.f:(layoutAttributes.middleSeparatorInset.left+layoutAttributes.middleSeparatorInset.right)),
-                                  border?layoutAttributes.borderSeparatorWidth:layoutAttributes.middleSeparatorWidth);
+  CGRect topFrame = CGRectMake(0.f,
+                               0.f,
+                               CGRectGetWidth(self.bounds),
+                               layoutAttributes.borderSeparatorWidth);
+  CGRect bottomFrame = CGRectMake(0.f,
+                                  CGRectGetHeight(self.bounds)-layoutAttributes.borderSeparatorWidth,
+                                  CGRectGetWidth(self.bounds),
+                                  layoutAttributes.borderSeparatorWidth);
+  CGRect middleFrame = CGRectMake(layoutAttributes.middleSeparatorInset.left,
+                                  CGRectGetHeight(self.bounds)-layoutAttributes.middleSeparatorWidth,
+                                  CGRectGetWidth(self.bounds)-layoutAttributes.middleSeparatorInset.left+layoutAttributes.middleSeparatorInset.right,
+                                  layoutAttributes.middleSeparatorWidth);
   
   [self.topSeparatorView setFrame:topFrame];
   [self.bottomSeparatorView setFrame:bottomFrame];
+  [self.middleSeparatorView setFrame:middleFrame];
   
   if ((type == SBCollectionViewTableCellTypeTop || type == SBCollectionViewTableCellTypeSingle) && !self.topSeparatorView.superview)
     [self.contentView addSubview:self.topSeparatorView];
   else if (self.topSeparatorView.superview)
     [self.topSeparatorView removeFromSuperview];
+
+  if ((type == SBCollectionViewTableCellTypeBottom || type == SBCollectionViewTableCellTypeSingle) && !self.bottomSeparatorView.superview)
+    [self.contentView addSubview:self.bottomSeparatorView];
+  else if (self.bottomSeparatorView.superview)
+    [self.bottomSeparatorView removeFromSuperview];
+  
+  if ((type == SBCollectionViewTableCellTypeMiddle || type == SBCollectionViewTableCellTypeTop) && !self.middleSeparatorView.superview)
+    [self.contentView addSubview:self.middleSeparatorView];
+  else if (self.middleSeparatorView.superview)
+    [self.middleSeparatorView removeFromSuperview];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -79,8 +95,8 @@
   NSIndexPath *selfIndexPath = [collectionView indexPathForCell:self];
   SBCollectionViewTableCell *cell = (SBCollectionViewTableCell *)[collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:selfIndexPath.item-1 inSection:selfIndexPath.section]];
   
-  [self.bottomSeparatorView setHidden:selected];
-  [cell.bottomSeparatorView setHidden:selected];
+  [self.bottomSeparatorView.superview?self.bottomSeparatorView:self.middleSeparatorView setHidden:selected];
+  [cell.bottomSeparatorView.superview?cell.bottomSeparatorView:cell.middleSeparatorView setHidden:selected];
 }
 
 @end

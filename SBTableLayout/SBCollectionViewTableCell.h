@@ -20,8 +20,13 @@
 @property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *topSeparatorView;
 
 /**
- The separator view displayd at the bottom of every cell.
+ The separator view displayd at the bottom of bottom and single cells.
  */
 @property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *bottomSeparatorView;
+
+/**
+ The separator view displayd at the bottom of top and middle cells.
+ */
+@property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *middleSeparatorView;
 
 @end
