@@ -11,11 +11,6 @@
 #import "SBCollectionViewTableCellSeparatorView.h"
 #import "UIColor+SBCollectionViewTableLayoutColors.h"
 
-@interface SBCollectionViewTableCell ()
-@property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *topSeparatorView;
-@property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *bottomSeparatorView;
-@end
-
 @implementation SBCollectionViewTableCell
 
 - (id)initWithFrame:(CGRect)frame {

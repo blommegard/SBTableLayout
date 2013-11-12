@@ -7,9 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+@class SBCollectionViewTableCellSeparatorView;
 
 /**
  The class of a table cell in the layout, handles the separator views.
  */
 @interface SBCollectionViewTableCell : UICollectionViewCell
+
+/**
+ The separator view displayd at the top of top and single cells.
+ */
+@property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *topSeparatorView;
+
+/**
+ The separator view displayd at the bottom of every cell.
+ */
+@property (nonatomic, strong) SBCollectionViewTableCellSeparatorView *bottomSeparatorView;
+
 @end
