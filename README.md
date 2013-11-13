@@ -10,7 +10,11 @@ A customizable UICollectionViewLayout to use instead of UITableView.
 
 ## Adding to Your Project
 * Add all files in the SBTableLayout-folder to your project, and you are good to go.
-* … or just use [Cocoapods](cocoapods.org)
+* …or use [Cocoapods](http://cocoapods.org/):
+
+ ```ruby
+pod "SBTableLayout", "~> 0.0.1"
+ ```
 
 ## Todo
 * Add style for the plain UITableView style.
