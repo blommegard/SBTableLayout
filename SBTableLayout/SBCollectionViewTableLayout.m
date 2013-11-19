@@ -56,7 +56,7 @@
     
     // TODO: realloc
     if (_middleSeparatorInsets) free(_middleSeparatorInsets);
-    if (inset) _middleSeparatorInsets = malloc(sizeof(CGFloat)*sections);
+    if (inset) _middleSeparatorInsets = malloc(sizeof(UIEdgeInsets)*sections);
     
     if (_borderSeparatorWidths) free(_borderSeparatorWidths);
     if (borderWidth) _borderSeparatorWidths = malloc(sizeof(CGFloat)*sections);
