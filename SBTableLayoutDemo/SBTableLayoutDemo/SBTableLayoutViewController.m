@@ -40,8 +40,10 @@
     [_collectionView setBackgroundColor:[UIColor sb_tableBackgroundColor]];
     [_collectionView setAlwaysBounceVertical:YES];
 
-    [_collectionView setContentInset:UIEdgeInsetsMake(20.f, 0.f, 49.f, 0.f)];
-    [_collectionView setScrollIndicatorInsets:UIEdgeInsetsMake(0.f, 0.f, 49.f, 0.f)];
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+      [_collectionView setContentInset:UIEdgeInsetsMake(20.f, 0.f, 49.f, 0.f)];
+      [_collectionView setScrollIndicatorInsets:UIEdgeInsetsMake(0.f, 0.f, 49.f, 0.f)];
+    }
     
     [_collectionView registerClass:[SBCollectionViewTableCell class] forCellWithReuseIdentifier:@"Cell"];
     [_collectionView registerClass:[SBCollectionViewTableSupplementaryView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"];

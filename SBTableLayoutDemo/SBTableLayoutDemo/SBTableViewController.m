@@ -16,8 +16,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  [self.tableView setContentInset:UIEdgeInsetsMake(0.f, 0.f, 49.f, 0.f)];
-  [self.tableView setScrollIndicatorInsets:self.tableView.contentInset];
+  if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+    [self.tableView setContentInset:UIEdgeInsetsMake(0.f, 0.f, 49.f, 0.f)];
+    [self.tableView setScrollIndicatorInsets:self.tableView.contentInset];
+  }
 }
 
 #pragma mark - UITableViewDelegate
