@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SBTableLayout"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A customizable UICollectionViewLayout to use instead of a grouped styled UITableView"
   s.homepage     = "https://github.com/blommegard/SBTableLayout"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
