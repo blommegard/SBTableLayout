@@ -59,17 +59,17 @@
   [self.bottomSeparatorView setFrame:bottomFrame];
   [self.middleSeparatorView setFrame:middleFrame];
   
-  if ((type == SBCollectionViewTableCellTypeTop || type == SBCollectionViewTableCellTypeSingle) && !self.topSeparatorView.superview)
+  if ((type == SBCollectionViewTableCellTypeTop || type == SBCollectionViewTableCellTypeSingle))
     [self addSubview:self.topSeparatorView];
   else if (self.topSeparatorView.superview)
     [self.topSeparatorView removeFromSuperview];
 
-  if ((type == SBCollectionViewTableCellTypeBottom || type == SBCollectionViewTableCellTypeSingle) && !self.bottomSeparatorView.superview)
+  if ((type == SBCollectionViewTableCellTypeBottom || type == SBCollectionViewTableCellTypeSingle))
     [self addSubview:self.bottomSeparatorView];
   else if (self.bottomSeparatorView.superview)
     [self.bottomSeparatorView removeFromSuperview];
   
-  if ((type == SBCollectionViewTableCellTypeMiddle || type == SBCollectionViewTableCellTypeTop) && !self.middleSeparatorView.superview)
+  if ((type == SBCollectionViewTableCellTypeMiddle || type == SBCollectionViewTableCellTypeTop))
     [self addSubview:self.middleSeparatorView];
   else if (self.middleSeparatorView.superview)
     [self.middleSeparatorView removeFromSuperview];

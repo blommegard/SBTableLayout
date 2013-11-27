@@ -25,6 +25,7 @@ static UIEdgeInsets paddning = {10.f, 12.f, 10.f, 10.f};
 - (UILabel *)label {
   if (!_label) {
     _label = [[UILabel alloc] initWithFrame:UIEdgeInsetsInsetRect(self.bounds, paddning)];
+    [_label setBackgroundColor:[UIColor sb_tableBackgroundColor]];
     [_label setTextColor:[UIColor sb_supplementaryViewTextColor]];
     [_label setNumberOfLines:0];
   }
