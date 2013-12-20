@@ -13,7 +13,7 @@ A customizable UICollectionViewLayout to use instead of UITableView.
 * …or use [Cocoapods](http://cocoapods.org/):
 
  ```ruby
-pod "SBTableLayout", "~> 0.0.1"
+pod "SBTableLayout"
  ```
 
 ## Todo
